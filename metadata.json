@@ -1,0 +1,5 @@
+{
+  "name": "Rubika Prompt Architect",
+  "description": "An interactive web application to transform ideas into optimized prompts for AI agents. Based on the 'Guía Maestra de Prompts', this tool helps you generate detailed, effective instructions for various business tasks, from creating buyer personas to building pitch decks.",
+  "requestFramePermissions": []
+}
