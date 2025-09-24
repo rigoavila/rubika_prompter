@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import PrompterPage from './pages/PrompterPage';
-import LandingPage from './pages/landing/LandingPage';
+import PrompterPage from '@/src/pages/PrompterPage';
+import LandingPage from '@/src/pages/landing/LandingPage';
 
 // Placeholder components for other routes
 const LoginPage = () => <div className="p-8 text-center"><h1 className="text-2xl font-bold">Login Page</h1><p>Placeholder for the login page.</p><Link to="/" className="text-blue-500 hover:underline">Go Home</Link></div>;

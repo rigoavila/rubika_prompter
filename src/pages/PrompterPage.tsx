@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
-import { PROMPT_TEMPLATES } from '../constants/prompts';
-import { PromptTemplate, SavedPrompt } from '../types';
-import useLocalStorage from '../hooks/useLocalStorage';
+import { PROMPT_TEMPLATES } from '@/constants/prompts';
+import { PromptTemplate, SavedPrompt } from '@/types';
+import useLocalStorage from '@/hooks/useLocalStorage';
 
 // --- Helper Components defined outside App to prevent re-renders ---
 
