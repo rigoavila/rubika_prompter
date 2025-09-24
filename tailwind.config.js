@@ -7,10 +7,14 @@ export default {
   darkMode: 'class', // Habilito el modo oscuro basado en una clase en el HTML
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Montserrat', 'Inter', 'sans-serif'],
+      },
       colors: {
         rubika: {
           'orange': '#E65100',
           'yellow': '#FFCA28',
+          'dark-yellow': '#FFA000',
           'red': '#D32F2F',
           'blue': '#1976D2',
           'green': '#388E3C',

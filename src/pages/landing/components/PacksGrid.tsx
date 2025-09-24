@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 
 const PacksGrid: React.FC = () => {
   return (
-    <section className="py-16 md:py-24 bg-white dark:bg-slate-900">
+<section className="py-16 md:py-24 bg-slate-100 dark:bg-slate-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
@@ -17,7 +17,7 @@ const PacksGrid: React.FC = () => {
 
         <div className="mt-12 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {PACKS_GRID_COPY.packs.map((pack) => (
-            <div key={pack.name} className="group flex flex-col justify-between p-6 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-rubika-orange dark:hover:border-rubika-yellow transition-all">
+            <div key={pack.name} className="group flex flex-col justify-between p-6 bg-white dark:bg-slate-700 rounded-2xl border border-slate-200 dark:border-slate-600 hover:border-rubika-orange dark:hover:border-rubika-yellow transition-all">
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
                   {pack.name}
@@ -26,10 +26,6 @@ const PacksGrid: React.FC = () => {
                   {pack.description}
                 </p>
               </div>
-              <button className="mt-6 flex items-center text-rubika-orange font-semibold group-hover:text-rubika-yellow transition-colors">
-                <span>{pack.cta}</span>
-                <ArrowRight className="ml-2 h-5 w-5 transform transition-transform group-hover:translate-x-1" />
-              </button>
             </div>
           ))}
         </div>
