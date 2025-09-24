@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center py-16 md:py-24">
           {/* Text Content */}
           <div className="text-center md:text-left">
-            <p className="text-sm font-semibold text-rubika-dark-yellow uppercase tracking-wider">
+            <p className="text-sm font-semibold text-rubika-orange uppercase tracking-wider">
               No alcanza solo con pagar IA; hay que saber usarla también.
             </p>
             <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
@@ -27,14 +27,8 @@ const Hero: React.FC = () => {
               >
                 Empezar a utilizar
               </button>
-              <button
-                onClick={() => navigate('/demo')}
-                className="bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 text-rubika-orange font-bold py-3 px-6 rounded-lg border-2 border-rubika-orange transition-colors"
-              >
-                Ver demo
-              </button>
             </div>
-             <div className="mt-8 text-sm text-rubika-dark-yellow font-medium flex justify-center md:justify-start space-x-4">
+             <div className="mt-8 text-sm text-rubika-yellow font-medium flex justify-center md:justify-start space-x-4">
                 <span>+Rápido de ejecutar</span>
                 <span>·</span>
                 <span>+Enfocado en objetivos</span>
@@ -45,11 +39,7 @@ const Hero: React.FC = () => {
 
           {/* Image/Illustration Placeholder */}
           <div className="flex items-center justify-center">
-            <div className="w-full h-80 bg-slate-200 dark:bg-slate-800 rounded-2xl flex items-center justify-center">
-              <p className="text-slate-500 dark:text-slate-400">
-                [Ilustración de emprendedores usando IA]
-              </p>
-            </div>
+            <img src="https://i.imgur.com/BhdI1Y0.png" alt="Ilustración de emprendedores usando IA" className="w-full h-auto rounded-2xl" />
           </div>
         </div>
       </div>
