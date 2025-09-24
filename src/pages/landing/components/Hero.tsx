@@ -25,13 +25,13 @@ const Hero: React.FC = () => {
                 onClick={() => navigate('/prompt')}
                 className="bg-rubika-orange hover:bg-opacity-90 text-white font-bold py-3 px-6 rounded-lg text-lg transition-transform transform hover:scale-105"
               >
-                {HERO_COPY.ctaPrimary}
+                Empezar a utilizar
               </button>
               <button
                 onClick={() => navigate('/demo')}
                 className="bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 text-rubika-orange font-bold py-3 px-6 rounded-lg border-2 border-rubika-orange transition-colors"
               >
-                {HERO_COPY.ctaSecondary}
+                Ver demo
               </button>
             </div>
              <div className="mt-8 text-sm text-slate-500 dark:text-slate-400 font-medium flex justify-center md:justify-start space-x-4">

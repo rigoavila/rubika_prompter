@@ -35,10 +35,10 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <div className="hidden md:block flex-shrink-0">
               <button
-                onClick={() => navigate('/login')}
+                onClick={() => navigate('/prompt')}
                 className="bg-slate-800 text-white dark:bg-slate-200 dark:text-slate-900 hover:bg-slate-700 dark:hover:bg-white font-semibold py-2 px-4 rounded-lg transition-colors"
               >
-                Ingresar
+                Usar herramienta
               </button>
             </div>
             <div className="md:hidden ml-4">
