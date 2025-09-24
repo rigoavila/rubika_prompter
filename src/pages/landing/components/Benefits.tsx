@@ -14,7 +14,7 @@ const iconComponents: { [key: string]: React.FC<LucideProps> } = {
 
 const Benefits: React.FC = () => {
   return (
-    <section id="beneficios" className="py-16 md:py-24 bg-slate-50 dark:bg-slate-900/50">
+<section id="beneficios" className="py-16 md:py-24 bg-slate-100 dark:bg-slate-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
@@ -29,8 +29,8 @@ const Benefits: React.FC = () => {
           {BENEFITS_COPY.map((benefit) => {
             const Icon = iconComponents[benefit.icon];
             return (
-              <div key={benefit.title} className="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm transition-transform hover:scale-105 hover:shadow-lg">
-                <div className="flex items-center justify-center h-12 w-12 rounded-full bg-rubika-orange/10 text-rubika-orange">
+              <div key={benefit.title} className="p-6 bg-white dark:bg-slate-700 rounded-2xl shadow-sm transition-transform hover:scale-105 hover:shadow-lg">
+                <div className="flex items-center justify-center h-12 w-12 rounded-full bg-rubika-orange text-white">
                   {Icon ? <Icon className="h-6 w-6" /> : null}
                 </div>
                 <h3 className="mt-5 text-xl font-semibold text-slate-900 dark:text-white">

@@ -6,22 +6,23 @@ const FinalCTA: React.FC = () => {
     const navigate = useNavigate();
 
     return (
-        <section className="bg-slate-800 dark:bg-slate-900">
+<section className="bg-slate-100 dark:bg-slate-100">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="py-16 md:py-20 text-center">
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
                         {FINAL_CTA_COPY.title}
                     </h2>
-                    <p className="mt-4 text-lg text-slate-300 max-w-2xl mx-auto">
+                    <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
                         Empieza hoy y usa la IA como una ventaja competitiva real, no como un juguete.
                     </p>
                     <div className="mt-8">
-                        <button
-                            onClick={() => navigate('/prompt')}
-                            className="bg-rubika-orange hover:bg-opacity-90 text-white font-bold py-4 px-8 rounded-lg text-xl transition-transform transform hover:scale-105"
-                        >
-                            {FINAL_CTA_COPY.cta}
-                        </button>
+                        <a href='https://cafecito.app/rubikanetworking' rel='noopener' target='_blank'>
+                            <img
+                                srcSet='https://cdn.cafecito.app/imgs/buttons/button_6.png 1x, https://cdn.cafecito.app/imgs/buttons/button_6_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_6_3.75x.png 3.75x'
+                                src='https://cdn.cafecito.app/imgs/buttons/button_6.png'
+                                alt='Invitame un café en cafecito.app'
+                            />
+                        </a>
                     </div>
                 </div>
             </div>
