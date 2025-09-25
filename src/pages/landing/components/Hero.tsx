@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center py-16 md:py-24">
           {/* Text Content */}
           <div className="text-center md:text-left">
-            <p className="text-sm font-semibold text-rubika-dark-yellow uppercase tracking-wider">
+            <p className="text-sm font-semibold uppercase tracking-wider" style="color: yellow;">
               No alcanza solo con pagar IA; hay que saber usarla también.
             </p>
             <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
@@ -28,8 +28,8 @@ const Hero: React.FC = () => {
                 Empezar a utilizar
               </button>
             </div>
-             <div className="mt-8 text-sm text-rubika-dark-yellow font-medium flex justify-center md:justify-start space-x-4">
-                <span>+Rápido de ejecutar</span>
+             <div className="mt-8 text-sm font-medium flex justify-center md:justify-start space-x-4" style="color: yellow;">
+                <span >+Rápido de ejecutar</span>
                 <span>·</span>
                 <span>+Enfocado en objetivos</span>
                 <span>·</span>
