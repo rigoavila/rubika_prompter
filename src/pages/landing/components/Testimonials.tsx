@@ -18,8 +18,8 @@ const Testimonials: React.FC = () => {
         <div className="mt-12 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {TESTIMONIALS_COPY.map((testimonial) => (
             <div key={testimonial.name} className="bg-slate-800 rounded-2xl p-8 shadow-soft flex flex-col">
-              <div className="flex text-rubika-yellow mb-4">
-                {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" className="h-5 w-5" />)}
+              <div className="flex mb-4">
+                {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" className="h-5 w-5 text-rubika-dark-yellow" />)}
               </div>
               <blockquote className="flex-grow text-slate-200 text-lg">
                 "{testimonial.quote}"
