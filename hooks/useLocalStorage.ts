@@ -1,19 +1,42 @@
 
 import { useState, useEffect } from 'react';
 
+export function getStoredValue<T>(storage: Storage | undefined, key: string, initialValue: T): T {
+  if (!storage) {
+    return initialValue;
+  }
+
+  try {
+    const item = storage.getItem(key);
+    return item ? JSON.parse(item) : initialValue;
+  } catch (error) {
+    console.error(error);
+    return initialValue;
+  }
+}
+
+export function syncFromStorageEvent<T>(
+  event: Pick<StorageEvent, 'key' | 'newValue'>,
+  key: string,
+  initialValue: T,
+  updateValue: (value: T) => void,
+): void {
+  if (event.key !== key) {
+    return;
+  }
+
+  try {
+    const parsedValue = event.newValue ? JSON.parse(event.newValue) : initialValue;
+    updateValue(parsedValue);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 function useLocalStorage<T,>(key: string, initialValue: T): [T, (value: T) => void] {
-  const [storedValue, setStoredValue] = useState<T>(() => {
-    if (typeof window === 'undefined') {
-      return initialValue;
-    }
-    try {
-      const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
-    } catch (error) {
-      console.error(error);
-      return initialValue;
-    }
-  });
+  const [storedValue, setStoredValue] = useState<T>(() =>
+    getStoredValue(typeof window === 'undefined' ? undefined : window.localStorage, key, initialValue),
+  );
 
   const setValue = (value: T) => {
     try {
@@ -26,22 +49,21 @@ function useLocalStorage<T,>(key: string, initialValue: T): [T, (value: T) => vo
       console.error(error);
     }
   };
-  
+
   useEffect(() => {
-    const handleStorageChange = (e: StorageEvent) => {
-      if (e.key === key) {
-        try {
-          setStoredValue(e.newValue ? JSON.parse(e.newValue) : initialValue);
-        } catch (error) {
-          console.error(error);
-        }
-      }
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const handleStorageChange = (event: StorageEvent) => {
+      syncFromStorageEvent(event, key, initialValue, setStoredValue);
     };
+
     window.addEventListener('storage', handleStorageChange);
     return () => {
       window.removeEventListener('storage', handleStorageChange);
     };
-     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key, initialValue]);
 
 

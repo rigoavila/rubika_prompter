@@ -24,7 +24,7 @@
 
 // SEO & METADATA
 export const META_DATA = {
-  title: "Prompt Architect — Rubika Learnings Tools",
+  title: "Prompt Architect — Rubika Learning Tools",
   description: "Set de prompts listos para vender, validar y escalar tu emprendimiento. No alcanza solo con pagar IA; hay que saber usarla también.",
   ogImage: "https://example.com/og-image-rubika.jpg" // Placeholder OG image
 };
