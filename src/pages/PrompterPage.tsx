@@ -8,12 +8,22 @@ import useLocalStorage from '@/hooks/useLocalStorage';
 interface IdeaObjetivoCardProps {
     activeTab: 'normal' | 'programmer';
     setActiveTab: (tab: 'normal' | 'programmer') => void;
+    selectedTemplate: PromptTemplate | null;
     setSelectedTemplate: (template: PromptTemplate | null) => void;
     setVariableValues: (values: Record<string, any>) => void;
 }
-const IdeaObjetivoCard: React.FC<IdeaObjetivoCardProps> = ({ activeTab, setActiveTab, setSelectedTemplate, setVariableValues }) => {
+const IdeaObjetivoCard: React.FC<IdeaObjetivoCardProps> = ({
+    activeTab,
+    setActiveTab,
+    selectedTemplate,
+    setSelectedTemplate,
+    setVariableValues,
+}) => {
     const normalTemplates = useMemo(() => PROMPT_TEMPLATES.filter(p => p.category === 'normal'), []);
     const programmerTemplates = useMemo(() => PROMPT_TEMPLATES.filter(p => p.category === 'programmer'), []);
+
+    const selectedProgrammerTemplateId = selectedTemplate?.category === 'programmer' ? selectedTemplate.id : '';
+    const selectedNormalTemplateId = selectedTemplate?.category === 'normal' ? selectedTemplate.id : '';
 
     const handleSelectChange = (id: string) => {
          const newTemplate = PROMPT_TEMPLATES.find(t => t.id === id);
@@ -61,9 +71,9 @@ const IdeaObjetivoCard: React.FC<IdeaObjetivoCardProps> = ({ activeTab, setActiv
                 {activeTab === 'programmer' && (
                     <div>
                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Seleccioná un prompt de programación</label>
-                         <select
+                        <select
                             onChange={(e) => handleSelectChange(e.target.value)}
-                            defaultValue=""
+                            value={selectedProgrammerTemplateId}
                             className="w-full p-2 border border-gray-300 rounded-md bg-white dark:bg-slate-700 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-blue-500"
                         >
                             <option value="" disabled>Elegí una plantilla...</option>
@@ -77,9 +87,9 @@ const IdeaObjetivoCard: React.FC<IdeaObjetivoCardProps> = ({ activeTab, setActiv
                     <div>
                         {/* This can be expanded later with the idea -> suggestion flow */}
                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Seleccioná una plantilla</label>
-                         <select
+                        <select
                             onChange={(e) => handleSelectChange(e.target.value)}
-                            defaultValue=""
+                            value={selectedNormalTemplateId}
                             className="w-full p-2 border border-gray-300 rounded-md bg-white dark:bg-slate-700 dark:border-gray-600 dark:text-white focus:ring-2 focus:ring-blue-500"
                         >
                             <option value="" disabled>Elegí una plantilla...</option>
@@ -265,7 +275,7 @@ const App: React.FC = () => {
     } else {
       root.classList.remove('dark');
     }
-    // No FOUC script in index.html is needed anymore with this setup
+    // Mantiene sincronizado el valor con el script inline en index.html que previene FOUC
     localStorage.setItem('theme', isProgrammerMode ? 'dark' : 'light');
   }, [isProgrammerMode]);
 
@@ -359,6 +369,7 @@ const App: React.FC = () => {
                 <IdeaObjetivoCard
                     activeTab={activeTab}
                     setActiveTab={setActiveTab}
+                    selectedTemplate={selectedTemplate}
                     setSelectedTemplate={setSelectedTemplate}
                     setVariableValues={setVariableValues}
                 />
